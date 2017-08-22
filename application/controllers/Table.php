@@ -7,26 +7,31 @@ class Table extends MY_Controller {
  {
    parent::__construct();
    $this->checkAuth();
+   $this->load->model("tabel");
  }
 
  public function getTable()
  {
-   $data = array(
-     array(
-       "id" => "1",
-       "table" => "data",
-       "column" => "2",
-       "hits" => "123",
-     ),
-     array(
-       "id" => "2",
-       "table" => "data",
-       "column" => "2",
-       "hits" => "123",
-     )
-   );
+   $data = $this->tabel->tableList();
    $respons = array('status' => "ok" , "data" => $data );
    $this->sendResponse($respons);
+ }
+
+ public function addTable()
+ {
+   $data = $this->getBody();
+   $fields = array(
+   );
+   foreach ($data['data'] as $field) {
+     $fields[$field['name']] =  array(
+       'type' => $field['type'],
+       "constraint" => $field['constraint']
+    );
+
+     //array_push($fields,$temp);
+   }
+   print_r($fields);
+   echo $data['name'];
  }
 }
 ?>

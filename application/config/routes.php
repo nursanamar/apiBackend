@@ -53,6 +53,7 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['login']['post'] = "Blogin/login";
 $route['table']['get'] = 'table/getTable';
+$route['table']['post'] = 'table/addTable';
 $route['jwt/login']['post'] = "jwth/login";
 $route['jwt/test'] = 'jwth/test';
 $route['translate_uri_dashes'] = FALSE;
