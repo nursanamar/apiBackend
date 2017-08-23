@@ -5,6 +5,7 @@ class MY_Controller extends CI_Controller {
 
 	private $jwtToken;
 	public $payload;
+	public $user;
 
 	 public function __construct()
 	{
@@ -76,8 +77,11 @@ class MY_Controller extends CI_Controller {
 	{
 		$input = $this->getBody();
 		$result = $this->login->chekUser($input['user'],$input['pass']);
+		$this->user = array(
+			'id' => $result['id'],
+			'name' => $result['name']
+		);
 		return ($result === array()) ? false : true;
-
 	}
 
 }

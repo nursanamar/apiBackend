@@ -13,14 +13,15 @@ class Blogin extends MY_Controller {
   public function login()
   {
     $check = $this->validateLogin();
-
-
     if($check){
       $token = $this->generateToken();
       $response = array(
         'status' => 'ok',
         'desc' => "Login succes",
-        'data' => array('token' => $token),
+        'data' => array(
+          'token' => $token,
+          'user' => $this->user,
+        ),
       );
 
     }else {
