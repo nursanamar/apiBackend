@@ -13,6 +13,8 @@ class Blogin extends MY_Controller {
   public function login()
   {
     $check = $this->validateLogin();
+
+
     if($check){
       $token = $this->generateToken();
       $response = array(

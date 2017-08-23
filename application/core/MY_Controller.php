@@ -10,6 +10,7 @@ class MY_Controller extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->library('jwt');
+		$this->load->model('login');
 	}
 
 	 public function sendResponse($data,$headers = array())
@@ -64,8 +65,8 @@ class MY_Controller extends CI_Controller {
 	{
 		$input = $this->getBody();
 		$iss = $this->input->get_request_header('User-agent',true);
-		$id = $input['user'];
-		$payload = array('id' => $id ,'iss' => $iss );
+		$user = $this->login->chekUser($input['user'],$input['pass']);
+		$payload = array('id' => $user['id'] ,'name' => $user['name'] ,'iss' => $iss );
 		$token = $this->jwt->encode($payload,$iss."nursan");
 
 		return $token;
@@ -74,11 +75,9 @@ class MY_Controller extends CI_Controller {
 	public function validateLogin()
 	{
 		$input = $this->getBody();
-		if($input['user'] === 'nursan' && $input['pass'] === 'amar'){
-			return true;
-		}else {
-			return false;
-		}
+		$result = $this->login->chekUser($input['user'],$input['pass']);
+		return ($result === array()) ? false : true;
+
 	}
 
 }
