@@ -17,10 +17,24 @@ class Users extends MY_Controller
   public function getUSers()
   {
     $data['status'] = 'ok';
-    
+
     $data['data'] = $this->user->getAll();
 
     $this->sendResponse($data);
+  }
+
+  public function addUser()
+  {
+    $req = $this->getBody();
+    $data = array("type" => "user");
+    foreach ($req as $key => $value) {
+      $data[$key] = $value;
+    }
+    $res['status'] = 'ok';
+    $res['data'] = $this->user->addUser($data);
+
+
+    $this->sendResponse($res);
   }
 }
 

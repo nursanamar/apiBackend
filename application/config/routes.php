@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
+$route['user']['post'] = 'users/addUser';
 $route['user']['get'] = 'users/getUsers';
 $route['stat']['get'] = 'home/statData';
 $route['login']['post'] = "Blogin/login";
