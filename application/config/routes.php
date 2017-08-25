@@ -54,6 +54,7 @@ $route['404_override'] = '';
 $route['stat']['get'] = 'home/statData';
 $route['login']['post'] = "Blogin/login";
 $route['table']['get'] = 'table/getTable';
+$route['table/(:num)']['delete'] = 'table/deleteTable/$1';
 $route['table']['post'] = 'table/addTable';
 $route['jwt/login']['post'] = "jwth/login";
 $route['jwt/test'] = 'jwth/test';

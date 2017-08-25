@@ -22,8 +22,22 @@ class Tabel extends	CI_Model {
   {
     $this->db->select("*");
     $this->db->where("id",$id);
-    return $this->db->get('tables')->result_array();
+    $data = $this->db->get('tables')->result_array();
+
+    return $data[0];
   }
+
+  public function deleteTable($id)
+  {
+    $this->db->where('id',$id);
+    $this->db->delete('tables');
+  }
+
+  public function checkTable($table)
+  {
+    return $this->db->table_exists($table);
+  }
+
   public function lastData()
   {
     $this->db->select_max('id');
