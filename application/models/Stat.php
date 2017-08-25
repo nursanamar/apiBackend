@@ -15,8 +15,8 @@ class Stat extends CI_Model
   public function statData()
   {
     $data['tabels'] = $this->db->count_all_results('tables');
-    $data['user'] = 0;
-    $data['blacklist'] = 0;
+    $data['user'] = $this->db->count_all_results('users');
+    $data['blacklist'] = $this->db->where('isBlock',"1")->count_all_results('users');
     $hits = $this->db->select_sum('hits')->get('tables')->result_array();
     $data['hits'] = $hits[0]['hits'];
 
