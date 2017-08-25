@@ -17,7 +17,6 @@ class Users extends MY_Controller
   public function getUSers()
   {
     $data['status'] = 'ok';
-
     $data['data'] = $this->user->getAll();
 
     $this->sendResponse($data);
@@ -34,6 +33,20 @@ class Users extends MY_Controller
     $res['data'] = $this->user->addUser($data);
 
 
+    $this->sendResponse($res);
+  }
+
+  public function deleteUser($id)
+  {
+    $this->user->deleteUser($id);
+    $this->output->set_status_header(204);
+  }
+
+  public function blockUser($id)
+  {
+    $data = $this->getBody();
+    $res['status'] = "ok";
+    $res['data'] = $this->user->blockUser($id,$data);
     $this->sendResponse($res);
   }
 }

@@ -33,6 +33,21 @@ class User extends CI_Model
     return $data[0];
   }
 
+  public function deleteUser($id)
+  {
+    $this->db->where('id',$id);
+    $this->db->delete('users');
+  }
+
+  public function blockUser($id,$data)
+  {
+    $this->db->where('id',$id);
+    $this->db->set($data);
+    $this->db->update('users');
+
+    return $this->getById($id);
+  }
+
   public function lastData()
   {
     $this->db->select_max('id');
