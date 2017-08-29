@@ -44,7 +44,7 @@ class Table extends MY_Controller {
      $response['status'] = 'ok';
      $response['desc'] = 'table created';
    }
-
+   $this->output->set_status_header(201);
    $this->sendResponse($response);
 
  }

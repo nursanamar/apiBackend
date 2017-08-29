@@ -32,7 +32,7 @@ class Users extends MY_Controller
     $res['status'] = 'ok';
     $res['data'] = $this->user->addUser($data);
 
-
+    $this->output->set_status_header(201);
     $this->sendResponse($res);
   }
 
