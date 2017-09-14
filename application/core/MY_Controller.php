@@ -23,6 +23,7 @@ class MY_Controller extends CI_Controller {
 		 $this->output->set_header("Access-Control-Allow-Origin: *");
 		 $this->output->set_header("X-Message: ApiBuilder/1.0");
 		 $this->output->set_header("Access-Control-Allow-Methods: POST, GET, OPTIONS, DELETE, PUT");
+		 $this->output->set_header("Access-Control-Allow-Headers: Content-type, Authorization");
 		 $this->output->set_header("Server: ApiBuilder",true);
 		$this->output->set_output(json_encode($data));
 	}
