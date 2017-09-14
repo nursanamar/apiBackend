@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  *
  */
-class Install extends CI_Controller
+class Install extends MY_Controller
 {
 
   function __construct()
