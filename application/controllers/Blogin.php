@@ -9,6 +9,11 @@ class Blogin extends MY_Controller {
 
  }
 
+ public function options()
+ {
+   $this->sendResponse();
+ }
+
 
   public function login()
   {
