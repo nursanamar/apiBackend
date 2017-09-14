@@ -62,4 +62,5 @@ $route['table/(:num)']['delete'] = 'table/deleteTable/$1';
 $route['table']['post'] = 'table/addTable';
 $route['jwt/login']['post'] = "jwth/login";
 $route['jwt/test'] = 'jwth/test';
+$route['install'] = 'install/tabel';
 $route['translate_uri_dashes'] = FALSE;
