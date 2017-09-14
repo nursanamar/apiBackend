@@ -11,7 +11,7 @@ class Blogin extends MY_Controller {
 
  public function options()
  {
-   $this->sendResponse();
+   $this->sendResponse(null);
  }
 
 
