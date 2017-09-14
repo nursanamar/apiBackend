@@ -66,4 +66,9 @@ $route['jwt/login']['post'] = "jwth/login";
 $route['jwt/test'] = 'jwth/test';
 $route['install'] = 'install/install';
 $route['install/user'] = 'install/addUser';
+$route['stat']['options'] = 'Blogin/options';
+$route['login']['options'] = "Blogin/options";
+$route['table']['options'] = 'Blogin/options';
+$route['table/(:num)']['options'] = 'Blogin/options';
+
 $route['translate_uri_dashes'] = FALSE;
