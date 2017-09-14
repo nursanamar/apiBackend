@@ -63,4 +63,5 @@ $route['table']['post'] = 'table/addTable';
 $route['jwt/login']['post'] = "jwth/login";
 $route['jwt/test'] = 'jwth/test';
 $route['install'] = 'install/install';
+$route['install/user'] = 'install/addUser';
 $route['translate_uri_dashes'] = FALSE;

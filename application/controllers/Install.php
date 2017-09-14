@@ -80,7 +80,7 @@ class Install extends MY_Controller
 
     $this->dbforge->add_field($fields);
     $this->dbforge->add_key("id",TRUE);
-    if($this->dbforge->create_table("user")){
+    if($this->dbforge->create_table("users")){
       $user = array(
         "user" => "Nursan",
         "pass" => "amar",
@@ -98,6 +98,17 @@ class Install extends MY_Controller
   {
     $this->installTable();
     $this->installuser();
+  }
+  public function addUser()
+  {
+    $user = array(
+      "user" => "Nursan",
+      "pass" => "amar",
+      "name" => "Nursan amar",
+      "type" => "Admin"
+    );
+    $this->user->addUser($user);
+    echo "sukses";
   }
 }
 
