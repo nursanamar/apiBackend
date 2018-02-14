@@ -18,7 +18,7 @@ class login extends CI_Model
     $this->db->where(array('user' => $user,'pass' => $pass));
     $result = $this->db->get('users')->result_array();
 
-    return $result[0];
+    return ($result === array()) ? false : true;
   }
 }
 
