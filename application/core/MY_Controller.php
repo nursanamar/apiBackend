@@ -79,6 +79,9 @@ class MY_Controller extends CI_Controller {
 	{
 		$input = $this->getBody();
 		$result = $this->login->chekUser($input['user'],$input['pass']);
+		if(!$result){
+			return false;
+		}
 		$this->user = array(
 			'id' => $result['id'],
 			'name' => $result['name']
